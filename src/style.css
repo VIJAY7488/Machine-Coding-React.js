@@ -53,10 +53,37 @@ body{
     flex-direction: column;
 }
 
-.employees__names__title,
-.employees__names__list{
+.employees__name__title,
+.employees__single__title{
     padding-bottom: 10px;
     margin-bottom: 5px;
     text-align: center;
     border-bottom: 1px solid black;
+}
+
+.employees__name__list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.employees__name__item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--btn);
+    cursor: pointer;
+}
+
+.employees__name__item:hover,
+.selected{
+    background-color: var(--btn-hover);
+}
+
+.employeeDelete{
+    color: red;
+    font-weight: 600;
 }
