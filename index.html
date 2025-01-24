@@ -25,7 +25,77 @@
             <span class="employees__single__title">Employee Information</span>
             <div class="employees__single__info"></div>
         </div>
+
     </div>
+
+
+    <!-- Add Employee Model -->
+    <div class="add__employee">
+        <form action="" class="add__employee__create">
+            Add a new Employee
+            <div>
+                <input 
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                required
+                />
+
+                <input 
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                />
+            </div>
+
+            <input 
+            type="text"
+            name="imageUrl"
+            placeholder="Image Url (optional)"
+            />
+
+            <input 
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            />
+
+            <input 
+            type="number"
+            name="contactNumber"
+            placeholder="Contact"
+            required
+            />
+
+            <input 
+            type="number"
+            name="salary"
+            placeholder="Salary"
+            />
+
+            <input 
+            type="text"
+            name="address"
+            placeholder="Address"
+            />
+
+            <input 
+            type="date"
+            name="dob"
+            placeholder="Date of Birth"
+            class="add__employee__create__dob"
+            />
+
+            <input 
+            type="submit"
+            class="add__employee__create__submit"
+            value="submit"
+            />
+        </form>
+     </div>
+
+
     <script src="src/index.js"></script>
 </body>
 </html>
