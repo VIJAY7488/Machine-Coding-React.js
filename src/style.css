@@ -87,3 +87,24 @@ body{
     color: red;
     font-weight: 600;
 }
+
+.employees__single__heading{
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.employees__single__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.employees__single__info > img{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 50%;
+}

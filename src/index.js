@@ -7,9 +7,18 @@ async function fetchData(){
     let selectedEmployee = employee[0];
 
     const employeeList = document.querySelector('.employees__name__list');
-    const employeeInfo = document.querySelector('.employees__single__list');
+    const employeeInfo = document.querySelector('.employees__single__info');
 
 
+    employeeList.addEventListener('click', (e) =>{
+        if(e.target.tagName === "SPAN" && selectedEmployeesId !== e.target.id){
+            selectedEmployeesId = e.target.id;
+            renderEmployee();
+            renderSingleEmployee();
+        }
+    })
+
+   // Employee Rendering Logic
     const renderEmployee = () => {
         employeeList.innerHTML = '';
         employee.forEach(emp => {
@@ -26,10 +35,30 @@ async function fetchData(){
             employeeItem.innerHTML = `${emp.firstName} ${emp.lastName} <i class="employeeDelete">X</>`;
 
             employeeList.append(employeeItem);
-        });   
+        }); 
+        
+    }
+    
+    renderEmployee();
+
+
+    const renderSingleEmployee = () =>{
+        employeeInfo.innerHTML = `
+        <img src="${selectedEmployee.imageUrl}" />
+        <span class="employees__single__heading">
+        ${selectedEmployee.firstName} ${selectedEmployee.lastName} 
+        (${selectedEmployee.age})
+        </span>
+        <span>${selectedEmployee.address}</span>
+        <span>${selectedEmployee.email}</span>
+        <span>Mobile - ${selectedEmployee.contactNumber}</span>
+        <span>DOB - ${selectedEmployee.dob}</span>
+        `;
     }
 
-    renderEmployee();
+    if(selectedEmployee){
+        renderSingleEmployee();
+    }
 }
 
 fetchData();
