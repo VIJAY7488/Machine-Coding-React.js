@@ -10,6 +10,22 @@ async function fetchData(){
     const employeeInfo = document.querySelector('.employees__single__info');
 
 
+    // Add a new employee logic
+    const createEmployee = document.querySelector('.createEmployee');
+    const addEmployeeModal = document.querySelector('.add__employee');
+    const addEmployeeForm = document.querySelector('.add__employee__create');
+
+    createEmployee.addEventListener('click', () => {
+        addEmployeeModal.style.display = 'flex'
+    });
+
+    addEmployeeModal.addEventListener('click', (e) =>{
+        if(e.target.className === 'add__employee'){
+            addEmployeeModal.style.display = 'none'
+        }
+    })
+
+    // Select Employee Logic
     employeeList.addEventListener('click', (e) =>{
         if(e.target.tagName === "SPAN" && selectedEmployeesId !== e.target.id){
             selectedEmployeesId = e.target.id;
