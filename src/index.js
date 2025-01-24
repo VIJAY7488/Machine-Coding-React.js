@@ -23,6 +23,25 @@ async function fetchData(){
         if(e.target.className === 'add__employee'){
             addEmployeeModal.style.display = 'none'
         }
+    });
+
+    addEmployeeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(addEmployeeForm);
+        const values = [...formData.entries()];
+        let empData = {}
+        values.forEach(val => {
+            empData[val[0]] = val[1];
+        });
+
+        empData.id = employee[employee.length-1].id + 1;
+        empData.age = new Date().getFullYear() - parseInt(empData.dob.slice(0, 4), 10);
+        empData.imageUrl = empData.imageUrl || 'https://cdn-icons-png.flaticon.com/512/0/93.png';
+        employee.push(empData);
+        renderEmployee();
+        addEmployeeForm.reset();
+        addEmployeeModal.style.display = 'none'
     })
 
     // Select Employee Logic
