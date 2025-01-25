@@ -83,11 +83,6 @@ body{
     background-color: var(--btn-hover);
 }
 
-.employeeDelete{
-    color: red;
-    font-weight: 600;
-}
-
 .employees__single__heading{
     text-align: center;
     font-size: 25px;

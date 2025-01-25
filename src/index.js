@@ -46,10 +46,21 @@ async function fetchData(){
 
     // Select Employee Logic
     employeeList.addEventListener('click', (e) =>{
+        
         if(e.target.tagName === "SPAN" && selectedEmployeesId !== e.target.id){
             selectedEmployeesId = e.target.id;
             renderEmployee();
             renderSingleEmployee();
+        }
+
+        // delete employee logic
+        if (e.target?.tagName === 'I') {
+            employee = employee.filter(emp => String(emp.id) !== e.target.parentNode?.id)
+            if (String(selectedEmployeesId) === e.target.parentNode?.id) {
+                selectedEmployeesId = employee[0]?.id || -1;
+                renderSingleEmployee();
+            }
+            renderEmployee();
         }
     })
 
@@ -67,7 +78,7 @@ async function fetchData(){
             }
 
             employeeItem.setAttribute('id', emp.id);
-            employeeItem.innerHTML = `${emp.firstName} ${emp.lastName} <i class="employeeDelete">X</>`;
+            employeeItem.innerHTML = `${emp.firstName} ${emp.lastName} <i class="employeeDelete">❌</>`;
 
             employeeList.append(employeeItem);
         }); 
@@ -78,6 +89,7 @@ async function fetchData(){
 
 
     const renderSingleEmployee = () =>{
+
         employeeInfo.innerHTML = `
         <img src="${selectedEmployee.imageUrl}" />
         <span class="employees__single__heading">
